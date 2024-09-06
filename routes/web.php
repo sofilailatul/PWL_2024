@@ -12,13 +12,23 @@ Route::get('/', [HomeController::class, 'welcome']);
 Route::get('/about', [AboutController::class, 'about']);
 Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 
-// Praktikum 8 No 11
+// Praktikum 2 No 11
 Route::resource('photos', PhotoController::class)->only([ 
     'index', 'show' 
     ]); 
     Route::resource('photos', PhotoController::class)->except([ 
     'create', 'store', 'update', 'destroy' 
     ]); 
+
+// Praktikum 3 No 2 dan 6
+Route::get('/greeting', function () { 
+    return view('blog.hello', ['name' => 'Sofi']); 
+    }); 
+
+// Praktikum 3 No 9
+Route::get('/greeting', [WelcomeController::class, 
+'greeting']); 
+
 
 /*
 |--------------------------------------------------------------------------
